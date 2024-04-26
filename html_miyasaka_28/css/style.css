@@ -60,3 +60,14 @@ button:hover {
 textarea {
   text-align: left;
 }
+.Button-style {
+  font-size: 18px;
+  display: inline-block;
+  padding: 0.4em 1em 0.2em;
+  color: #413838;
+  border: #ffffff dashed 1px;
+  box-shadow: 0 0 0 0.2em #6d6c03;
+  border-radius: 2.5px;
+  background-color: #e0c350;
+  cursor: pointer;
+}

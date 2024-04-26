@@ -1,0 +1,36 @@
+<!-- 360°閲覧できるビューワーのように、WEBサイトに3Dを埋め込む例 -->
+<html>
+  <head>
+    <!-- A-FrameをCDNから読み込む -->
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <!-- aframe-orbit-controlsをCDNから読み込む -->
+    <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+  </head>
+<body>
+
+  <a-scene>
+    <!-- aframe-orbit-controlsのプロパティを記述 -->
+    <a-entity camera look-controls orbit-controls="target: 0 0 0; maxPolarAngle:180; minDistance: 0.5; maxDistance: 200; initialPosition: 0 15 15"></a-entity>
+    <!-- 色が濃いので、調節するコンポーネント -->
+    <a-scene renderer="colorManagement: true"></a-scene>
+
+    <!-- ライティング -->
+    <a-light type="directional" color="#ffefd5" intensity="0.8" position="2 4 -3"></a-light>
+
+    <!-- 3Dモデルを読み込んで、位置やスケールなど定義する -->
+    <a-gltf-model  id="test" src="model/htmlcheese.glb"  position="5 -2 0" rotation="" scale="2 2 2"></a-gltf-model>
+    
+    <!-- 背景色-->
+    <a-sky color="#cd853f"></a-sky>
+
+    <!-- キーライト：主光源 -->
+    <a-light type="directional" color="#FFFFFF" intensity="0.5" position="-1 1 1"></a-light>
+    <!-- フィルライト：柔らかい補助光 -->
+    <a-light type="point" color="#FFDDAA" intensity="0.3" position="1 1 0"></a-light>
+    <!-- リムライト：背後からの強調光 -->
+    <a-light type="spot" color="#AAFFAA" intensity="0.5" position="0 2 2" target="#target"></a-light>
+    <!-- 天井ライト -->
+    <a-light type="ambient" color="#888888"></a-light>
+  </a-scene>
+</body>
+</html>
