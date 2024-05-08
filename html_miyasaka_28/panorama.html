@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Panorama Viewer</title>
+    <!-- three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.164.0/three.cjs"></script>
+    <!-- PANOLENS.js -->
+    <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.1/build/panolens.min.js"></script>
+</head>
+<body>
+    <div id="panorama"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const panorama = new PANOLENS.ImagePanorama('model\panorama.jpg');
+            const viewer = new PANOLENS.Viewer({
+                container: document.querySelector('#panorama')
+            });
+            viewer.add(panorama);
+        });
+    </script>
+</body>
+</html>

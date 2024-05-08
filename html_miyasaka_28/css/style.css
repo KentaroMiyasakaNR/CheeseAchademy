@@ -53,6 +53,16 @@ button {
   border: none;
   cursor: pointer;
 }
+
+.navigation a {
+  text-decoration: none; /* Remove default underline */
+  color: black; /* Set text color for links */
+}
+
+.linktext{
+  margin:auto;
+}
+
 button:hover {
   background-color: #0056b3;
 }
@@ -70,4 +80,26 @@ textarea {
   border-radius: 2.5px;
   background-color: #e0c350;
   cursor: pointer;
+}
+
+/* パノラマ用 */
+
+#panolens {
+  width: 50%;
+  height: 50vh;
+}
+
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 700px;
+  height: 400px;
+}
+
+#btn_change_size {
+  position: absolute;
+  height: 30px;
+  left: 10px;
+  top: 10px;
 }

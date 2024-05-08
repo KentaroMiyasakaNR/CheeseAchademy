@@ -12,10 +12,29 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.22/dist/tailwind.min.css" rel="stylesheet">
   <!-- BXSlider CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- JavaScript links -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.125.2/build/three.min.js"></script>
+  <!-- PANOLENS.js -->
+  <script src="https://unpkg.com/panolens@0.14.0/build/panolens.min.js"></script>
 </head>
 <body>
+  <header class="flex justify-between items-center bg-gray-100 p-4">
+    <img src="/img/header_logo.png" alt="Cheese Academy Logo" style="height: 60px;">
+    <nav class="navigation">
+      <a class="p-5 text-2xl" href="#about">ABOUT</a>
+      <a class="p-5 text-2xl" href="#course">COURSE</a>
+      <a class="p-5 text-2xl" href="#news">NEWS</a>
+      <a class="p-5 text-2xl" href="#access">ACCESS</a>
+      <a class="p-5 text-2xl" href="#contact">CONTACT</a>
+    </nav>
+  </header>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="js/main.js"></script>
+
   <!-- ヘッド -->
   <div class="bghead bg-cover p-10">
     <div class="flex justify-between items-center h-full p-10">
@@ -24,7 +43,7 @@
     </div>
   </div>
   <!-- アバウト -->
-  <section class="">
+  <section id="about" class="p-10">
     <h1 class="p-10 center-block text-4xl">About</h1>
     <p class="center-block text-xl">チーズアカデミーは、チーズ職人養成学校です。<br><br>
       チーズの素晴らしさを、自給自足を通じて、できるだけ多くの人に知っていただきたい。<br><br>
@@ -34,11 +53,10 @@
       チーズ職人への就職・転職もサポートします。
     </p>
   </section>
-
   <!-- ３Dモデル -->
   <section class="p-10">
     <a href="aflameTest.html" class="text-4xl mx-auto" target="_blank">
-      <button class="Button-style">実際にチーズを見てみましょう！</button>
+      <button class="Button-style">こんなおいしそうなチーズが作れるようになります！</button>
   </a>
   </section>
   <div class="slider">
@@ -49,7 +67,7 @@
   </div>
 
  <!--  コース  -->
-  <section class="p-10 mx-auto">
+ <section id="course" class="p-10">
     <h1 class="p-10 center-block text-4xl">Course</h1>
     <p class="center-block text-xl">
       未経験からでもスタートができるよう、カリキュラムは多くの専門家や
@@ -105,9 +123,31 @@
       </div>
     </div>
   </section>
-  
+
+  <!-- パノラマビューア -->
+  <div id="panolens"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const panoramaViewer = (element, image) => {
+        let el = document.querySelector(element);
+        let panorama = new PANOLENS.ImagePanorama(image);
+        let viewer = new PANOLENS.Viewer({
+            container: el,
+            cameraFov: 100,
+            autoRotate: true,
+            autoRotateSpeed: 0.1,
+            autoRotateActivationDuration: 5
+        });
+        viewer.add(panorama);
+      };
+
+      const element = "#panolens";
+      const image = "model/panorama.jpg";
+      panoramaViewer(element, image);
+    });
+  </script>
   <!-- ニュース -->
-  <section>
+  <section id="news" class="p-10">
     <h1 class="p-10 center-block text-4xl">News</h1>
     <!-- ニュース一覧 -->
     <div class="w-3/4 flex justify-between mx-auto">
@@ -144,7 +184,7 @@
   </section>
 
   <!-- アクセス -->
-  <section class="flex flex-col items-center mt-10">
+  <section id="access" class="flex flex-col items-center mt-10">
     <div class="p-5">
       <h1 class="p-10 text-4xl">ACCESS</h1>
       <h2 class="center-block text-2xl">会社情報</h2>
@@ -179,7 +219,7 @@
   </section>
 
   <!-- コンタクト -->
-  <section class="contact-section py-10">
+  <section id="contact" class="contact-section py-10">
     <div class="max-w-4xl mx-auto px-5">
       <h1 class="text-4xl text-center font-bold mb-6">Contact</h1>
       <p class="text-lg text-center mb-3">説明会お申し込み・お問い合わせ</p>
